@@ -3,7 +3,7 @@
     
     <style name="Theme.MySplashScreen" parent="Theme.SplashScreen">
         <item name="windowSplashScreenBackground">@color/white</item>
-        <item name="windowSplashScreenAnimatedIcon">@drawable/SplashScreen</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_screen_news_avd_preview</item>
         <item name="postSplashScreenTheme">@style/Theme.NewsNow</item>
     </style>
 
