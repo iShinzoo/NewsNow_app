@@ -11,8 +11,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.dp
 import com.example.newsnow.presentation.dimension.IndicatorSize
 import com.example.newsnow.presentation.onboarding.page
+import com.example.newsnow.ui.theme.BlueGray
 
 
 @Composable
@@ -21,9 +24,10 @@ fun PageIndicator(
     pageSize : Int,
     selectedPage : Int,
     selectedColor : Color = MaterialTheme.colorScheme.primary,
-    unselectedColor: Color = Color.Blue
+    unselectedColor: Color = BlueGray,
+    indicatorSpacing: Dp = 8.dp
 ){
-    Row (modifier = Modifier, horizontalArrangement = Arrangement.SpaceBetween){
+    Row (modifier = Modifier, horizontalArrangement = Arrangement.spacedBy(indicatorSpacing)){
         repeat(pageSize){
             page->
 
