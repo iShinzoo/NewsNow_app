@@ -67,19 +67,46 @@ dependencies {
     androidTestImplementation(platform("androidx.compose:compose-bom:2024.02.01"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test-manifest")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.7.0-alpha03")
 
+
+    // Preferences Database
     implementation("androidx.datastore:datastore-preferences-core:1.0.0")
     implementation("androidx.datastore:datastore-preferences-rxjava2:1.0.0")
     implementation("androidx.datastore:datastore-preferences-rxjava3:1.0.0")
     implementation("androidx.datastore:datastore-core:1.0.0")
     implementation("androidx.core:core-splashscreen:1.0.1")
 
-    implementation("com.google.dagger:hilt-android:2.50")
-    kapt("com.google.dagger:hilt-android-compiler:2.50")
 
+    // dagger hilt
+    implementation("com.google.dagger:hilt-android:2.51")
+    kapt("com.google.dagger:hilt-android-compiler:2.51")
+    //hilt ViewModel
     implementation ("androidx.hilt:hilt-navigation-compose:1.2.0")
     kapt ("androidx.hilt:hilt-compiler:1.2.0")
+
+    // system ui controller
+    implementation ("com.google.accompanist:accompanist-systemuicontroller:0.35.0-alpha")
+
+    // Retrofit
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    // Paging 3 Library
+    implementation("androidx.paging:paging-runtime-ktx:3.3.0-alpha03")
+    // alternatively - without Android dependencies for tests
+    testImplementation("androidx.paging:paging-common-ktx:3.3.0-alpha03")
+    // optional - RxJava2 support
+    implementation("androidx.paging:paging-rxjava2-ktx:3.3.0-alpha03")
+    // optional - RxJava3 support
+    implementation("androidx.paging:paging-rxjava3:3.3.0-alpha03")
+    // optional - Guava ListenableFuture support
+    implementation("androidx.paging:paging-guava:3.3.0-alpha03")
+    // optional - Jetpack Compose integration
+    implementation("androidx.paging:paging-compose:3.3.0-alpha03")
+
+    //coil library for image
+    implementation("io.coil-kt:coil-compose:2.6.0")
 
 
 }

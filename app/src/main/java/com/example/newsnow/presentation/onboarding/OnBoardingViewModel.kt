@@ -2,8 +2,7 @@ package com.example.newsnow.presentation.onboarding
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newsnow.domain.UseCases.AppEntryUseCases
-import com.example.newsnow.domain.UseCases.SaveAppEntry
+import com.example.newsnow.domain.UseCases.app_entry.AppEntryUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
