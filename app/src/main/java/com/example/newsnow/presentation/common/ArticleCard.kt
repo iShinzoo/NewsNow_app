@@ -34,6 +34,7 @@ import com.example.newsnow.domain.model.Source
 import com.example.newsnow.presentation.dimension.ArticleCardSize
 import com.example.newsnow.presentation.dimension.ExtraSmallPadding
 import com.example.newsnow.presentation.dimension.ExtraSmallPadding2
+import com.example.newsnow.presentation.dimension.START_END_PADDING
 import com.example.newsnow.presentation.dimension.SmallIconSize
 import com.example.newsnow.ui.theme.NewsNowTheme
 
@@ -46,7 +47,8 @@ fun ArticleCard(
 
     val context = LocalContext.current
 
-    Row ( modifier = Modifier.clickable { onClick() }){
+    Row ( modifier = Modifier.clickable { onClick() }
+        .padding(start = START_END_PADDING, end = START_END_PADDING)){
         
         AsyncImage(
             modifier = Modifier
@@ -60,6 +62,7 @@ fun ArticleCard(
         Column(
             verticalArrangement = Arrangement.SpaceAround,
             modifier = Modifier
+                .padding(start = ExtraSmallPadding)
                 .padding(horizontal = ExtraSmallPadding)
                 .height(ArticleCardSize)
         ) {

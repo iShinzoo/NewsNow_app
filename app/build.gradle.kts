@@ -108,5 +108,10 @@ dependencies {
     //coil library for image
     implementation("io.coil-kt:coil-compose:2.6.0")
 
+    //Compose Navigation
+    implementation ("androidx.navigation:navigation-compose:2.8.0-alpha03")
+
+    //Compose Foundation
+    implementation ("androidx.compose.foundation:foundation:1.7.0-alpha03")
 
 }
