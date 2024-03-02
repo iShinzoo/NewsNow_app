@@ -7,6 +7,7 @@ import com.example.newsnow.domain.model.Article
 import com.example.newsnow.domain.repository.NewsRepository
 import com.example.newsnow.remote.NewsApi
 import com.example.newsnow.remote.NewsPagingSource
+import com.example.newsnow.remote.SearchNewsPagingSource
 import kotlinx.coroutines.flow.Flow
 
 class NewsRepositoryImpl(
@@ -17,6 +18,19 @@ class NewsRepositoryImpl(
             config = PagingConfig(pageSize = 10),
             pagingSourceFactory = {
                 NewsPagingSource(
+                    newsApi = newsApi,
+                    sources = sources.joinToString(separator = ",")
+                )
+            }
+        ).flow
+    }
+
+    override fun searchNews(searchQuery: String, sources: List<String>): Flow<PagingData<Article>> {
+        return Pager(
+            config = PagingConfig(pageSize = 10),
+            pagingSourceFactory = {
+                SearchNewsPagingSource(
+                    searchQuery = searchQuery,
                     newsApi = newsApi,
                     sources = sources.joinToString(separator = ",")
                 )

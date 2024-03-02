@@ -5,6 +5,12 @@
       <entry key="ArticleCardShimmerEffectPreview">
         <State />
       </entry>
+      <entry key="DetailsScreenPreview">
+        <State />
+      </entry>
+      <entry key="DetailsTopBarPreview">
+        <State />
+      </entry>
       <entry key="app">
         <State />
       </entry>

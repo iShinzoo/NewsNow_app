@@ -17,4 +17,6 @@ object dimension {
     val START_END_PADDING = 12.dp
 
     val ICON_SIZE = 20.dp
+
+    val ArticleImageHeight = 248.dp
 }
