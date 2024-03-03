@@ -105,13 +105,19 @@ dependencies {
     // optional - Jetpack Compose integration
     implementation("androidx.paging:paging-compose:3.3.0-alpha03")
 
-    //coil library for image
+    // coil library for image
     implementation("io.coil-kt:coil-compose:2.6.0")
 
-    //Compose Navigation
+    // Compose Navigation
     implementation ("androidx.navigation:navigation-compose:2.8.0-alpha03")
 
     //Compose Foundation
     implementation ("androidx.compose.foundation:foundation:1.7.0-alpha03")
+
+
+    // RoomData Base
+    implementation ("androidx.room:room-runtime:2.6.1")
+    kapt ("androidx.room:room-compiler:2.6.1")
+    implementation ("androidx.room:room-ktx:2.6.1")
 
 }
