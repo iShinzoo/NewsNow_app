@@ -21,8 +21,8 @@ import androidx.navigation.compose.rememberNavController
 import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.newsnow.R
 import com.example.newsnow.domain.model.Article
-import com.example.newsnow.home.HomeScreen
-import com.example.newsnow.home.HomeViewModel
+import com.example.newsnow.presentation.home.HomeScreen
+import com.example.newsnow.presentation.home.HomeViewModel
 import com.example.newsnow.navGraph.Route
 import com.example.newsnow.presentation.Search.SearchScreen
 import com.example.newsnow.presentation.Search.SearchViewModel

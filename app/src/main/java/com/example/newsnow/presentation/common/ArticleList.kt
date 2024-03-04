@@ -6,8 +6,8 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.material3.pulltorefresh.rememberPullToRefreshState
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
@@ -21,7 +21,9 @@ fun ArticlesList(
     articles : List<Article>,
     onClick : (Article) -> Unit
 ){
-
+    if (articles.isEmpty()){
+        EmptyScreen()
+    }
         LazyColumn(
             modifier = modifier.fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(MediumPadding1),
@@ -41,6 +43,7 @@ fun ArticlesList(
     articles : LazyPagingItems<Article>,
     onClick : (Article) -> Unit
 ){
+
     val handlePagingResult = handlePagingResults(articles = articles)
     if (handlePagingResult){
         LazyColumn(
@@ -75,9 +78,17 @@ fun handlePagingResults(
             false
         }
         error != null -> {
+            EmptyScreen(
+                error = error
+            )
+            false
+        }
+
+        articles.itemCount == 0 -> {
             EmptyScreen()
             false
         }
+
         else -> {
             true
         }
@@ -94,23 +105,4 @@ private fun shimmerEffect(){
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
