@@ -47,7 +47,7 @@ fun ArticleCardShimmerEffect(
     modifier: Modifier = Modifier
 ){
 
-    Row ( modifier = Modifier.padding(start = dimension.START_END_PADDING, end = dimension.START_END_PADDING)){
+    Row ( modifier = Modifier.padding(start = 6.dp, end = 6.dp)){
 
         Box(
             modifier = Modifier

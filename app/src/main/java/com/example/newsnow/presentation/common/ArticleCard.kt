@@ -3,6 +3,7 @@ package com.example.newsnow.presentation.common
 import android.content.res.Configuration
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -18,6 +19,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.platform.LocalContext
@@ -26,6 +28,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.example.newsnow.R
@@ -48,7 +51,7 @@ fun ArticleCard(
     val context = LocalContext.current
 
     Row ( modifier = Modifier.clickable { onClick() }
-        .padding(start = START_END_PADDING, end = START_END_PADDING)){
+        .padding(start = 6.dp, end = 4.dp)){
         
         AsyncImage(
             modifier = Modifier
@@ -68,7 +71,7 @@ fun ArticleCard(
         ) {
             Text(text = article.title,
                 style = MaterialTheme.typography.bodyMedium,
-                color = colorResource(id = R.color.text_title),
+                color = if(isSystemInDarkTheme())colorResource(id = R.color.input_background) else colorResource(id = R.color.text_title),
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis
             )
@@ -78,7 +81,7 @@ fun ArticleCard(
             ){
                 Text(text = article.source.name,
                     style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
-                    color = colorResource(id = R.color.body)
+                    color = if(isSystemInDarkTheme())colorResource(id = R.color.white) else colorResource(id = R.color.body)
                 )
 
                 Spacer(modifier = Modifier.width(ExtraSmallPadding2))
@@ -86,13 +89,13 @@ fun ArticleCard(
                 Icon(painter = painterResource(id = R.drawable.ic_time),
                     contentDescription = null,
                     modifier = Modifier.size(SmallIconSize),
-                    tint = colorResource(id = R.color.body)
+                    tint = if(isSystemInDarkTheme())colorResource(id = R.color.white) else colorResource(id = R.color.black)
                 )
                 Spacer(modifier = Modifier.width(ExtraSmallPadding2))
 
                 Text(text = article.publishedAt,
                     style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
-                    color = colorResource(id = R.color.body)
+                    color = if(isSystemInDarkTheme())colorResource(id = R.color.white) else colorResource(id = R.color.body)
                 )
             }
 

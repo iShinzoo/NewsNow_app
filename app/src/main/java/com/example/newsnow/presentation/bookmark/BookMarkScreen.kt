@@ -1,5 +1,6 @@
 package com.example.newsnow.presentation.bookmark
 
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -10,6 +11,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import com.example.newsnow.R
@@ -34,7 +36,7 @@ fun BookMarkScreen(
         Text(text = "BookMark",
             style = MaterialTheme.typography.displayMedium
                 .copy(fontWeight = FontWeight.Bold),
-            color = colorResource(id = R.color.text_title)
+            color = if(isSystemInDarkTheme())colorResource(id = R.color.white) else colorResource(id = R.color.black)
             )
 
         Spacer(modifier = Modifier.height(MediumPadding1))

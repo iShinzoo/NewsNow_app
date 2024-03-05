@@ -2,6 +2,7 @@ package com.example.newsnow.presentation.details.components
 
 import android.content.res.Configuration
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.icons.Icons
@@ -42,7 +43,8 @@ fun DetailsTopBar(
         navigationIcon = {
             IconButton(onClick = onBackClick) {
                 Icon(painter = painterResource(id = R.drawable.ic_back_arrow),
-                    contentDescription = null
+                    contentDescription = null,
+                    tint = if(isSystemInDarkTheme())colorResource(id = R.color.white) else colorResource(id = R.color.black)
                 )
             }
         },
@@ -50,19 +52,22 @@ fun DetailsTopBar(
 
             IconButton(onClick = onBookmarkClick) {
                 Icon(painter = painterResource(id = R.drawable.ic_bookmark),
-                    contentDescription = null
+                    contentDescription = null,
+                    tint = if(isSystemInDarkTheme())colorResource(id = R.color.white) else colorResource(id = R.color.black)
                 )
             }
 
             IconButton(onClick = onShareClick) {
                 Icon(imageVector = Icons.Default.Share,
-                    contentDescription = null
+                    contentDescription = null,
+                    tint = if(isSystemInDarkTheme())colorResource(id = R.color.white) else colorResource(id = R.color.black)
                 )
             }
 
             IconButton(onClick = onBrowsingClick) {
                 Icon(painter = painterResource(id = R.drawable.ic_network),
-                    contentDescription = null
+                    contentDescription = null,
+                    tint = if(isSystemInDarkTheme())colorResource(id = R.color.white) else colorResource(id = R.color.black)
                 )
             }
         }

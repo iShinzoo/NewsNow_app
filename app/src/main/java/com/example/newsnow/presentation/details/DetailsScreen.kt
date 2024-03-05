@@ -2,6 +2,7 @@ package com.example.newsnow.presentation.details
 
 import android.content.Intent
 import android.net.Uri
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -95,13 +96,14 @@ fun DetailsScreen(
                 
                 Text(text = article.title,
                     style = MaterialTheme.typography.displaySmall,
-                    color = colorResource(id = R.color.text_title)
+                    color = if(isSystemInDarkTheme())colorResource(id = R.color.input_background) else colorResource(id = R.color.text_title)
                     )
 
+                Spacer(modifier = Modifier.height(MediumPadding1))
 
                 Text(text = article.content,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = colorResource(id = R.color.body)
+                    color = if(isSystemInDarkTheme())colorResource(id = R.color.placeholder) else colorResource(id = R.color.text_medium)
                 )
 
             }
