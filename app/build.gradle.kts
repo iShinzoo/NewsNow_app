@@ -57,7 +57,7 @@ dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     implementation("androidx.activity:activity-compose:1.8.2")
-    implementation(platform("androidx.compose:compose-bom:2024.02.01"))
+    implementation(platform("androidx.compose:compose-bom:2024.02.02"))
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.ui:ui-tooling-preview")
@@ -65,10 +65,10 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-    androidTestImplementation(platform("androidx.compose:compose-bom:2024.02.01"))
+    androidTestImplementation(platform("androidx.compose:compose-bom:2024.02.02"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
-    debugImplementation("androidx.compose.ui:ui-test-manifest:1.7.0-alpha03")
+    debugImplementation("androidx.compose.ui:ui-test-manifest:1.7.0-alpha04")
 
 
     // Preferences Database
@@ -76,7 +76,7 @@ dependencies {
     implementation("androidx.datastore:datastore-preferences-rxjava2:1.0.0")
     implementation("androidx.datastore:datastore-preferences-rxjava3:1.0.0")
     implementation("androidx.datastore:datastore-core:1.0.0")
-    implementation("androidx.core:core-splashscreen:1.0.1")
+    implementation("androidx.core:core-splashscreen:1.1.0-alpha02")
 
 
     // dagger hilt
@@ -94,26 +94,26 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
 
     // Paging 3 Library
-    implementation("androidx.paging:paging-runtime-ktx:3.3.0-alpha03")
+    implementation("androidx.paging:paging-runtime-ktx:3.3.0-alpha04")
     // alternatively - without Android dependencies for tests
-    testImplementation("androidx.paging:paging-common-ktx:3.3.0-alpha03")
+    testImplementation("androidx.paging:paging-common-ktx:3.3.0-alpha04")
     // optional - RxJava2 support
-    implementation("androidx.paging:paging-rxjava2-ktx:3.3.0-alpha03")
+    implementation("androidx.paging:paging-rxjava2-ktx:3.3.0-alpha04")
     // optional - RxJava3 support
-    implementation("androidx.paging:paging-rxjava3:3.3.0-alpha03")
+    implementation("androidx.paging:paging-rxjava3:3.3.0-alpha04")
     // optional - Guava ListenableFuture support
-    implementation("androidx.paging:paging-guava:3.3.0-alpha03")
+    implementation("androidx.paging:paging-guava:3.3.0-alpha04")
     // optional - Jetpack Compose integration
-    implementation("androidx.paging:paging-compose:3.3.0-alpha03")
+    implementation("androidx.paging:paging-compose:3.3.0-alpha04")
 
     // coil library for image
     implementation("io.coil-kt:coil-compose:2.6.0")
 
     // Compose Navigation
-    implementation ("androidx.navigation:navigation-compose:2.8.0-alpha03")
+    implementation ("androidx.navigation:navigation-compose:2.8.0-alpha04")
 
     //Compose Foundation
-    implementation ("androidx.compose.foundation:foundation:1.7.0-alpha03")
+    implementation ("androidx.compose.foundation:foundation:1.7.0-alpha04")
 
 
     // RoomData Base
@@ -124,4 +124,6 @@ dependencies {
     //swipe refresh
     implementation ("com.google.accompanist:accompanist-swiperefresh:0.34.0")
 
+    // new Splash Screen API
+    implementation ("androidx.core:core-splashscreen:1.1.0-alpha02")
 }
