@@ -19,7 +19,6 @@ import dagger.hilt.android.AndroidEntryPoint
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
 
 
-
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
@@ -28,12 +27,12 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        WindowCompat.setDecorFitsSystemWindows(window,false)
+        WindowCompat.setDecorFitsSystemWindows(window, false)
 
 
 
         installSplashScreen().apply {
-            setKeepOnScreenCondition{
+            setKeepOnScreenCondition {
                 viewModel.splashCondition
             }
         }
@@ -41,8 +40,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             NewsNowTheme {
 
-                val  isSystemInDarkMode = isSystemInDarkTheme()
-                val  systemController = rememberSystemUiController()
+                val isSystemInDarkMode = isSystemInDarkTheme()
+                val systemController = rememberSystemUiController()
 
                 SideEffect {
                     systemController.setSystemBarsColor(
@@ -51,7 +50,7 @@ class MainActivity : ComponentActivity() {
                     )
                 }
 
-                Box (modifier = Modifier.background(color = MaterialTheme.colorScheme.background)){
+                Box(modifier = Modifier.background(color = MaterialTheme.colorScheme.background)) {
 
                     val startDestination = viewModel.startDestination
                     NavGraph(startDestination = startDestination)

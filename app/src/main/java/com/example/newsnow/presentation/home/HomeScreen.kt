@@ -31,21 +31,19 @@ import com.example.newsnow.presentation.dimension.MediumPadding1
 
 
 @Composable
-fun HomeScreen(articles : LazyPagingItems<Article>,
-               navigateToSearch : () -> Unit,
-               navigateToDetails : (Article) -> Unit
-               ){
-
-
-
+fun HomeScreen(
+    articles: LazyPagingItems<Article>,
+    navigateToSearch: () -> Unit,
+    navigateToDetails: (Article) -> Unit
+) {
 
 
     val titles by remember {
         derivedStateOf {
-            if (articles.itemCount > 10){
+            if (articles.itemCount > 10) {
                 articles.itemSnapshotList.items
                     .slice(IntRange(start = 0, endInclusive = 9))
-                    .joinToString(separator = " \uD83d\uDFE5 "){
+                    .joinToString(separator = " \uD83d\uDFE5 ") {
                         it.title
                     }
             } else {
@@ -62,9 +60,8 @@ fun HomeScreen(articles : LazyPagingItems<Article>,
     ) {
 
 
-
         Image(
-            painter = painterResource(id = R.drawable.image1),
+            painter = painterResource(id = R.drawable.search),
             contentDescription = null,
             modifier = Modifier
                 .width(150.dp)
@@ -72,15 +69,17 @@ fun HomeScreen(articles : LazyPagingItems<Article>,
                 .padding(horizontal = MediumPadding1)
         )
 
+
+
         Spacer(modifier = Modifier.height(MediumPadding1))
 
         SearchBar(
             modifier = Modifier.padding(horizontal = MediumPadding1),
             text = "",
             readOnly = true,
-            onValueChange = {} ,
+            onValueChange = {},
             onClick = {
-                      navigateToSearch()
+                navigateToSearch()
             },
             onSearch = {}
         )
@@ -95,7 +94,7 @@ fun HomeScreen(articles : LazyPagingItems<Article>,
                 .padding(start = MediumPadding1)
                 .basicMarquee(),
             fontSize = 12.sp,
-            color = if(isSystemInDarkTheme())colorResource(id = R.color.white) else Color.Black
+            color = if (isSystemInDarkTheme()) colorResource(id = R.color.white) else Color.Black
         )
 
         Spacer(modifier = Modifier.height(MediumPadding1))
@@ -103,11 +102,12 @@ fun HomeScreen(articles : LazyPagingItems<Article>,
 
 
 
-            ArticlesList(
-                modifier = Modifier.padding(horizontal = MediumPadding1),
-                articles = articles,
-                onClick = {
-                    navigateToDetails(it) })
-        }
+        ArticlesList(
+            modifier = Modifier.padding(horizontal = MediumPadding1),
+            articles = articles,
+            onClick = {
+                navigateToDetails(it)
+            })
+    }
 
 }

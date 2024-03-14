@@ -8,12 +8,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import com.example.newsnow.domain.model.Article
 import com.example.newsnow.presentation.dimension.ExtraSmallPadding2
 import com.example.newsnow.presentation.dimension.MediumPadding1
+import com.example.newsnow.ui.theme.NewsNowTheme
 
 @Composable
 fun ArticlesList(
@@ -48,8 +50,8 @@ fun ArticlesList(
     if (handlePagingResult){
         LazyColumn(
             modifier = modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.spacedBy(MediumPadding1),
-            contentPadding = PaddingValues(all = 4.dp)
+            verticalArrangement = Arrangement.spacedBy(MediumPadding1)
+//            contentPadding = PaddingValues(all = 4.dp)
         ){
             items(count = articles.itemCount){
                 articles[it]?.let{
@@ -105,4 +107,3 @@ private fun shimmerEffect(){
         }
     }
 }
-
