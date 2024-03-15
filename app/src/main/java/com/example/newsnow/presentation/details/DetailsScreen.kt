@@ -34,13 +34,13 @@ import com.example.newsnow.ui.theme.NewsNowTheme
 @Composable
 fun DetailsScreen(
     article: Article,
-    event : (DetailsEvent) -> Unit,
-    navigateUp : () -> Unit
-){
+    event: (DetailsEvent) -> Unit,
+    navigateUp: () -> Unit
+) {
 
     val context = LocalContext.current
 
-    Column (
+    Column(
         modifier = Modifier
             .fillMaxSize()
             .statusBarsPadding()
@@ -48,39 +48,39 @@ fun DetailsScreen(
 
         DetailsTopBar(
             onBrowsingClick = {
-                         Intent(Intent.ACTION_VIEW).also {
-                             it.data = Uri.parse(article.url)
-                             if (it.resolveActivity(context.packageManager) != null){
-                                 context.startActivity(it)
-                             }
-                         }
+                Intent(Intent.ACTION_VIEW).also {
+                    it.data = Uri.parse(article.url)
+                    if (it.resolveActivity(context.packageManager) != null) {
+                        context.startActivity(it)
+                    }
+                }
             },
             onShareClick = {
-                           Intent(Intent.ACTION_SEND).also {
-                               it.putExtra(Intent.EXTRA_TEXT,article.url)
-                               it.type = "text/plain"
-                               if (it.resolveActivity(context.packageManager) != null){
-                                   context.startActivity(it)
-                               }
-                           }
+                Intent(Intent.ACTION_SEND).also {
+                    it.putExtra(Intent.EXTRA_TEXT, article.url)
+                    it.type = "text/plain"
+                    if (it.resolveActivity(context.packageManager) != null) {
+                        context.startActivity(it)
+                    }
+                }
             },
             onBookmarkClick = {
                 event(DetailsEvent.UpsertDeleteArticle(article))
             },
             onBackClick = navigateUp
-            )
+        )
 
-        LazyColumn (
+        LazyColumn(
             modifier = Modifier.fillMaxWidth(),
             contentPadding = PaddingValues(
                 start = MediumPadding1,
                 end = MediumPadding1,
                 top = MediumPadding1
             )
-        ){
+        ) {
 
             item {
-                
+
                 AsyncImage(
                     model = ImageRequest.Builder(context = context).data(article.urlToImage)
                         .build(),
@@ -91,19 +91,21 @@ fun DetailsScreen(
                         .clip(MaterialTheme.shapes.medium),
                     contentScale = ContentScale.Crop
                 )
-                
+
                 Spacer(modifier = Modifier.height(MediumPadding1))
-                
-                Text(text = article.title,
+
+                Text(
+                    text = article.title,
                     style = MaterialTheme.typography.displaySmall,
-                    color = if(isSystemInDarkTheme())colorResource(id = R.color.input_background) else colorResource(id = R.color.text_title)
-                    )
+                    color = colorResource(id = R.color.text_title)
+                )
 
                 Spacer(modifier = Modifier.height(MediumPadding1))
 
-                Text(text = article.content,
+                Text(
+                    text = article.content,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = if(isSystemInDarkTheme())colorResource(id = R.color.placeholder) else colorResource(id = R.color.text_medium)
+                    color = colorResource(id = R.color.text_medium)
                 )
 
             }
@@ -117,7 +119,7 @@ fun DetailsScreen(
 @Preview(showBackground = true)
 
 @Composable
-fun DetailsScreenPreview(){
+fun DetailsScreenPreview() {
     NewsNowTheme(dynamicColor = false) {
 
 
@@ -142,7 +144,7 @@ fun DetailsScreenPreview(){
                 url = "",
                 urlToImage = ""
             ),
-            event ={}) {
+            event = {}) {
         }
     }
 

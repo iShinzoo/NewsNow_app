@@ -14,6 +14,7 @@ import com.example.newsnow.navGraph.Route
 import com.example.newsnow.presentation.common.ArticlesList
 import com.example.newsnow.presentation.common.SearchBar
 import com.example.newsnow.presentation.dimension.MediumPadding1
+import com.example.newsnow.presentation.dimension.START_END_PADDING
 
 
 @Composable
@@ -27,8 +28,8 @@ fun SearchScreen(
         modifier = Modifier
             .padding(
                 top = MediumPadding1,
-                start = MediumPadding1,
-                end = MediumPadding1
+                start = START_END_PADDING,
+                end = START_END_PADDING
             )
             .statusBarsPadding()
             .fillMaxSize()

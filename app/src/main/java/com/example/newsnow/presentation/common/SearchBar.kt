@@ -1,6 +1,7 @@
 package com.example.newsnow.presentation.common
 
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.border
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.interaction.collectIsPressedAsState
@@ -14,6 +15,7 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -58,7 +60,7 @@ fun SearchBar(
 
     Box(modifier = Modifier.padding(start = START_END_PADDING, end = START_END_PADDING)) {
 
-        TextField(
+        OutlinedTextField(
             modifier = Modifier
                 .fillMaxWidth()
                 .searchBarBorder(),
@@ -82,8 +84,8 @@ fun SearchBar(
             }, shape = MaterialTheme.shapes.medium,
             colors = TextFieldDefaults.textFieldColors(
                 containerColor = colorResource(id = R.color.input_background),
-                focusedTextColor = if (isSystemInDarkTheme()) Color.White else Color.Black,
-                cursorColor = if (isSystemInDarkTheme()) Color.White else Color.Black,
+                focusedTextColor = Color.Black,
+                cursorColor = Color.Black,
                 disabledIndicatorColor = Color.Transparent,
                 errorIndicatorColor = Color.Transparent,
                 focusedIndicatorColor = Color.Transparent,
@@ -103,9 +105,9 @@ fun SearchBar(
 }
 
 fun Modifier.searchBarBorder() = composed {
-    if (!isSystemInDarkTheme()) {
+    if (!isSystemInDarkTheme() || isSystemInDarkTheme()) {
         border(
-            width = 1.dp,
+            width = 2.dp,
             color = Color.Black,
             shape = MaterialTheme.shapes.medium
         )

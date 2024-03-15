@@ -24,24 +24,25 @@ import com.example.newsnow.presentation.dimension.MediumPadding1
 @Composable
 fun BookMarkScreen(
     state: BookMarkState,
-    navigateToDetails : (Article) -> Unit
-){
-    Column (
+    navigateToDetails: (Article) -> Unit
+) {
+    Column(
         modifier = Modifier
             .fillMaxSize()
             .statusBarsPadding()
             .padding(top = MediumPadding1, start = MediumPadding1, end = MediumPadding1)
-    ){
+    ) {
 
-        Text(text = "BookMark",
+        Text(
+            text = "BookMark",
             style = MaterialTheme.typography.displayMedium
                 .copy(fontWeight = FontWeight.Bold),
-            color = if(isSystemInDarkTheme())colorResource(id = R.color.white) else colorResource(id = R.color.black)
-            )
+            color = colorResource(id = R.color.black)
+        )
 
         Spacer(modifier = Modifier.height(MediumPadding1))
 
-        ArticlesList(articles = state.articles, onClick = {navigateToDetails(it)})
+        ArticlesList(articles = state.articles, onClick = { navigateToDetails(it) })
 
     }
 }

@@ -77,7 +77,7 @@ fun ArticleCard(
                 Text(
                     text = article.title,
                     style = MaterialTheme.typography.bodyMedium,
-                    color = if (isSystemInDarkTheme()) colorResource(id = R.color.input_background) else colorResource(
+                    color = colorResource(
                         id = R.color.text_title
                     ),
                     maxLines = 2,
@@ -91,7 +91,7 @@ fun ArticleCard(
                     Text(
                         text = article.source.name,
                         style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
-                        color = if (isSystemInDarkTheme()) colorResource(id = R.color.white) else colorResource(
+                        color = colorResource(
                             id = R.color.body
                         )
                     )
@@ -102,7 +102,7 @@ fun ArticleCard(
                         painter = painterResource(id = R.drawable.ic_time),
                         contentDescription = null,
                         modifier = Modifier.size(SmallIconSize),
-                        tint = if (isSystemInDarkTheme()) colorResource(id = R.color.white) else colorResource(
+                        tint = colorResource(
                             id = R.color.black
                         )
                     )
@@ -111,7 +111,7 @@ fun ArticleCard(
                     Text(
                         text = article.publishedAt,
                         style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
-                        color = if (isSystemInDarkTheme()) colorResource(id = R.color.white) else colorResource(
+                        color = colorResource(
                             id = R.color.body
                         )
                     )

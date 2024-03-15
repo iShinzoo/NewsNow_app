@@ -9,9 +9,9 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/news_icon"
+        android:icon="@mipmap/news_icon"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/news_icon"
+        android:roundIcon="@mipmap/news_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.MySplashScreen"
         tools:targetApi="31">

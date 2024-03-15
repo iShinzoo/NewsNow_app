@@ -1,9 +1,11 @@
 package com.example.newsnow.presentation.home
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.basicMarquee
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -32,6 +34,7 @@ import com.example.newsnow.presentation.dimension.MediumPadding1
 
 @Composable
 fun HomeScreen(
+    modifier: Modifier = Modifier.background(Color.White),
     articles: LazyPagingItems<Article>,
     navigateToSearch: () -> Unit,
     navigateToDetails: (Article) -> Unit
@@ -59,15 +62,26 @@ fun HomeScreen(
             .statusBarsPadding()
     ) {
 
-
-        Image(
-            painter = painterResource(id = R.drawable.search),
-            contentDescription = null,
+        Row (
             modifier = Modifier
-                .width(150.dp)
-                .height(30.dp)
-                .padding(horizontal = MediumPadding1)
-        )
+                .fillMaxWidth()
+                .height(50.dp)
+        ){
+
+
+            Image(
+                painter = painterResource(id = R.drawable.news),
+                contentDescription = null,
+                modifier = Modifier
+                    .width(150.dp)
+                    .height(30.dp)
+                    .padding(horizontal = MediumPadding1)
+            )
+
+        }
+
+
+
 
 
 
@@ -94,12 +108,10 @@ fun HomeScreen(
                 .padding(start = MediumPadding1)
                 .basicMarquee(),
             fontSize = 12.sp,
-            color = if (isSystemInDarkTheme()) colorResource(id = R.color.white) else Color.Black
+            color = Color.Black
         )
 
         Spacer(modifier = Modifier.height(MediumPadding1))
-
-
 
 
         ArticlesList(
