@@ -14,4 +14,5 @@
     <color name="input_background">#fff</color>
     <color name="placeholder">#A0A3BD</color>
     <color name="shimmer">#C3C3C3</color>
+    <color name="cardColor">#020024</color>
 </resources>
