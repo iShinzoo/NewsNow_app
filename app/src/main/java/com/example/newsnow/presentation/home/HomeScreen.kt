@@ -70,46 +70,26 @@ fun HomeScreen(
 
 
             Image(
-                painter = painterResource(id = R.drawable.news),
+                painter = painterResource(id = R.drawable.n),
                 contentDescription = null,
                 modifier = Modifier
                     .width(150.dp)
                     .height(30.dp)
-                    .padding(horizontal = MediumPadding1)
             )
-
         }
 
-
-
-
-
-
-        Spacer(modifier = Modifier.height(MediumPadding1))
-
-        SearchBar(
-            modifier = Modifier.padding(horizontal = MediumPadding1),
-            text = "",
-            readOnly = true,
-            onValueChange = {},
-            onClick = {
-                navigateToSearch()
-            },
-            onSearch = {}
-        )
-
-        Spacer(modifier = Modifier.height(MediumPadding1))
+//        Spacer(modifier = Modifier.height(MediumPadding1))
 
         // Animated Headline
-        Text(
-            text = titles,
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(start = MediumPadding1)
-                .basicMarquee(),
-            fontSize = 12.sp,
-            color = Color.Black
-        )
+//        Text(
+//            text = titles,
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .padding(start = MediumPadding1)
+//                .basicMarquee(),
+//            fontSize = 12.sp,
+//            color = Color.Black
+//        )
 
         Spacer(modifier = Modifier.height(MediumPadding1))
 

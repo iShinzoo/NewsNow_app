@@ -46,7 +46,7 @@ fun DetailsTopBar(
             IconButton(onClick = onBackClick) {
                 Icon(
                     modifier = Modifier.size(28.dp),
-                    painter = painterResource(id = R.drawable.left),
+                    painter = painterResource(id = R.drawable.ic_back_arrow),
                     contentDescription = null
                 )
             }
@@ -56,7 +56,7 @@ fun DetailsTopBar(
             IconButton(onClick = onBookmarkClick) {
                 Icon(
                     modifier = Modifier.size(28.dp),
-                    painter = painterResource(id = R.drawable.bookmark),
+                    painter = painterResource(id = R.drawable.ic_bookmark),
                     contentDescription = null
                 )
             }
@@ -64,7 +64,7 @@ fun DetailsTopBar(
             IconButton(onClick = onShareClick) {
                 Icon(
                     modifier = Modifier.size(28.dp),
-                    painter = painterResource(id = R.drawable.share),
+                    painter = painterResource(id = R.drawable.ic_share),
                     contentDescription = null
                 )
             }
@@ -72,7 +72,7 @@ fun DetailsTopBar(
             IconButton(onClick = onBrowsingClick) {
                 Icon(
                     modifier = Modifier.size(28.dp),
-                    painter = painterResource(id = R.drawable.browsing),
+                    painter = painterResource(id = R.drawable.ic_browser),
                     contentDescription = null
                 )
             }

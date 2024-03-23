@@ -57,9 +57,10 @@ fun ArticleCard(
 
 
 
-    Card(onClick = { /*TODO*/ },
+    Card(
+        onClick = { /*TODO*/ },
         modifier = Modifier.background(color = colorResource(id = R.color.white))
-        ) {
+    ) {
 
         Box(modifier = Modifier.background(color = colorResource(id = R.color.white))) {
 

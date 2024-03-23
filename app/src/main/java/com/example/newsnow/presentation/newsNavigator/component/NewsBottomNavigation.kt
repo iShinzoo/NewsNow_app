@@ -85,9 +85,9 @@ fun NewsBottomNavigationPreview(){
     NewsNowTheme {
         NewsBottomNavigation(
             items = listOf(
-                BottomNavigationItem(icon = R.drawable.home, text = "HOME"),
-                BottomNavigationItem(icon = R.drawable.search, text = "SEARCH"),
-                BottomNavigationItem(icon = R.drawable.bookmark, text = "BOOKMARK")
+                BottomNavigationItem(icon = R.drawable.ic_home, text = "HOME"),
+                BottomNavigationItem(icon = R.drawable.ic_search, text = "SEARCH"),
+                BottomNavigationItem(icon = R.drawable.ic_bookmark, text = "BOOKMARK")
             ),
             selected = 0,
             onItemClick = {}
