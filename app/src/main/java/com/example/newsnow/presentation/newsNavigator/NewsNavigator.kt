@@ -78,17 +78,17 @@ fun NewsNavigator(){
                     selected = selectedItem,
                     onItemClick = { index ->
                         when (index) {
-                            0 -> NavigateToTab(
+                            0 -> navigateToTab(
                                 navController = navController,
                                 route = Route.HomeScreen.route
                             )
 
-                            1 -> NavigateToTab(
+                            1 -> navigateToTab(
                                 navController = navController,
                                 route = Route.SearchScreen.route
                             )
 
-                            2 -> NavigateToTab(
+                            2 -> navigateToTab(
                                 navController = navController,
                                 route = Route.BookMarkScreen.route
                             )
@@ -111,11 +111,11 @@ fun NewsNavigator(){
                 val articles = viewModel.news.collectAsLazyPagingItems()
                 HomeScreen(
                     articles = articles,
-                    navigateToSearch = {
-                        NavigateToTab(navController = navController, route = Route.HomeScreen.route)
-                    },
+//                    navigateToSearch = {
+//                        navigateToTab(navController = navController, route = Route.HomeScreen.route)
+//                    },
                     navigateToDetails = { article ->
-                        NavigateToDetails(
+                        navigateToDetails(
                             navController = navController,
                             article = article
                         )
@@ -130,7 +130,7 @@ fun NewsNavigator(){
                     state = state,
                     event =viewModel::onEvent,
                     navigateToDetails = { article ->
-                        NavigateToDetails(
+                        navigateToDetails(
                             navController = navController,
                             article = article
                         )
@@ -161,7 +161,7 @@ fun NewsNavigator(){
                 BookMarkScreen(
                     state = state,
                     navigateToDetails = { article ->
-                        NavigateToDetails(
+                        navigateToDetails(
                             navController = navController,
                             article = article
                             )
@@ -176,7 +176,7 @@ fun NewsNavigator(){
     }
 }
 
-private fun NavigateToTab(navController: NavController,route : String){
+private fun navigateToTab(navController: NavController, route : String){
     navController.navigate(route){
         navController.graph.startDestinationRoute?.let { homeScreen ->
             popUpTo(homeScreen){
@@ -188,7 +188,7 @@ private fun NavigateToTab(navController: NavController,route : String){
     }
 }
 
-private fun NavigateToDetails(navController: NavController,article: Article){
+private fun navigateToDetails(navController: NavController, article: Article){
     navController.currentBackStackEntry?.savedStateHandle?.set("article",article)
     navController.navigate(
         route = Route.DetailsScreen.route

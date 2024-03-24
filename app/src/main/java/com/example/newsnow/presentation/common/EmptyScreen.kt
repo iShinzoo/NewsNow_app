@@ -4,10 +4,14 @@ package com.example.newsnow.presentation.common
 import android.content.res.Configuration
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.content.MediaType.Companion.Image
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Icon
@@ -16,6 +20,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -23,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -35,16 +41,16 @@ import java.net.SocketTimeoutException
 @Composable
 fun EmptyScreen(error : LoadState.Error? = null) {
 
-    var Message by remember {
+    var message by remember {
         mutableStateOf(parseErrorMessage(error = error))
     }
 
-    var Icon by remember {
-        mutableStateOf(R.drawable.ic_network_error)
+    var icon by remember {
+        mutableIntStateOf(R.drawable.serverdown)
     }
     if (error == null) {
-        Message = "You have not Saved News So far !"
-        Icon = R.drawable.ic_search_document
+        message = "You have not Saved News So far !"
+        icon = R.drawable.bookmarkkk
     }
 
     var startAnimation by remember {
@@ -53,7 +59,7 @@ fun EmptyScreen(error : LoadState.Error? = null) {
 
     val alphaAnimation by animateFloatAsState(
         targetValue = if (startAnimation) 0.3f else 0f,
-        animationSpec = tween(durationMillis = 1000)
+        animationSpec = tween(durationMillis = 1000), label = ""
     )
 
     LaunchedEffect(key1 = true) {
@@ -61,8 +67,8 @@ fun EmptyScreen(error : LoadState.Error? = null) {
     }
     EmptyContent(
         alphaAnim = alphaAnimation,
-        message = Message,
-        iconId = Icon
+        message = message,
+        iconId = icon
     )
 
 }
@@ -78,14 +84,16 @@ fun EmptyContent(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        
-        Icon(painter = painterResource(id = iconId),
-            contentDescription = null,
-            tint = Color.DarkGray,
+
+        Image(
             modifier = Modifier
-                .size(120.dp)
-                .alpha(alphaAnim)
+                .fillMaxWidth(0.5f)
+                .fillMaxHeight(0.2f),
+            painter = painterResource(id = iconId),
+            contentDescription = null,
+            contentScale = ContentScale.Fit,
         )
+
         Text(
             text = message,
             style = MaterialTheme.typography.bodyMedium,
@@ -94,7 +102,7 @@ fun EmptyContent(
                 .padding(10.dp)
                 .alpha(alphaAnim)
         )
-        
+
     }
 }
 
@@ -114,8 +122,7 @@ fun parseErrorMessage(error : LoadState.Error?): String{
 }
 
 @Preview(showBackground = true)
-@Preview(showBackground = true, uiMode = Configuration.UI_MODE_NIGHT_YES)
 @Composable
 fun EmptyScreenPreview(){
-    EmptyContent(alphaAnim = 0.3f , message = "Internet Unavailable",R.drawable.ic_network_error)
+    EmptyContent(alphaAnim = 0.3f , message = "Internet Unavailable",R.drawable.bookmarkkk)
 }

@@ -3,6 +3,7 @@ package com.example.newsnow.presentation.onboarding.components
 import android.content.res.Configuration
 import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -34,35 +35,33 @@ fun OnBoardingPage(
     page: Page
 ){
 
-    Column(modifier = Modifier) {
+    Column(modifier = Modifier.background(Color.White)) {
 
         Image(modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight(0.6f)
             ,painter = painterResource(id = page.image)
             , contentDescription = null,
-            contentScale = ContentScale.Crop,
+            contentScale = ContentScale.Fit,
             )
         Spacer(modifier = Modifier.height(MediumPadding1))
         Text(text = page.title,
             modifier = Modifier
                 .padding(horizontal = MediumPadding2),
             style = MaterialTheme.typography.displaySmall.copy(fontWeight = FontWeight.Bold),
-            color = if(isSystemInDarkTheme())colorResource(id = R.color.input_background) else Color.Black
+            color = Color.Black
             )
         Spacer(modifier = Modifier.height(MediumPadding1))
         Text(text = page.description,
             modifier = Modifier
                 .padding(horizontal = MediumPadding2),
             style = MaterialTheme.typography.bodyMedium,
-            color = if(isSystemInDarkTheme())colorResource(id = R.color.input_background)
-            else colorResource(id = R.color.text_medium)
+            color = colorResource(id = R.color.text_medium)
         )
     }
 }
 
 @Preview(showBackground = true)
-@Preview(uiMode = UI_MODE_NIGHT_YES,showBackground = true)
 @Composable
 fun onBoardingPagePreview(){
     NewsNowTheme {

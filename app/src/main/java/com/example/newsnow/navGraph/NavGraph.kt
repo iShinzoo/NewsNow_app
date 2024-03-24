@@ -6,8 +6,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navigation
-import com.example.newsnow.presentation.bookmark.BookMarkScreen
-import com.example.newsnow.presentation.bookmark.BookMarkViewModel
 import com.example.newsnow.presentation.newsNavigator.NewsNavigator
 import com.example.newsnow.presentation.onboarding.OnBoardingScreen
 import com.example.newsnow.presentation.onboarding.OnBoardingViewModel

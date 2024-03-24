@@ -1,5 +1,6 @@
 package com.example.newsnow.presentation.bookmark
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -31,6 +32,7 @@ fun BookMarkScreen(
             .fillMaxSize()
             .statusBarsPadding()
             .padding(top = MediumPadding1, start = MediumPadding1, end = MediumPadding1)
+            .background(Color.White)
     ) {
 
         Text(

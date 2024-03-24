@@ -1,6 +1,7 @@
 package com.example.newsnow.presentation.onboarding
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -18,6 +19,8 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.newsnow.presentation.common.NewsButton
 import com.example.newsnow.presentation.common.NewsTextButton
@@ -25,6 +28,7 @@ import com.example.newsnow.presentation.dimension.MediumPadding2
 import com.example.newsnow.presentation.dimension.PageIndicatorwidth
 import com.example.newsnow.presentation.onboarding.components.OnBoardingPage
 import com.example.newsnow.presentation.onboarding.components.PageIndicator
+import com.example.newsnow.ui.theme.NewsNowTheme
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -32,7 +36,8 @@ import kotlinx.coroutines.launch
 fun OnBoardingScreen(
     event: (OnBoardingEvent) -> Unit
 ){
-    Column ( modifier = Modifier.fillMaxSize()){
+    Column ( modifier = Modifier.fillMaxSize()
+        .background(Color.White)){
         val pagerState = rememberPagerState(initialPage = 0) {
             page.size
         }
@@ -96,5 +101,15 @@ fun OnBoardingScreen(
         }
         Spacer(modifier = Modifier.weight(0.5f))
 
+    }
+}
+
+@Preview
+@Composable
+fun OnBoardingScreenPreview(){
+    NewsNowTheme {
+        OnBoardingScreen {
+
+        }
     }
 }

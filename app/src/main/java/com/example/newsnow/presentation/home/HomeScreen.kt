@@ -36,30 +36,31 @@ import com.example.newsnow.presentation.dimension.MediumPadding1
 fun HomeScreen(
     modifier: Modifier = Modifier.background(Color.White),
     articles: LazyPagingItems<Article>,
-    navigateToSearch: () -> Unit,
+//    navigateToSearch: () -> Unit,
     navigateToDetails: (Article) -> Unit
 ) {
 
 
-    val titles by remember {
-        derivedStateOf {
-            if (articles.itemCount > 10) {
-                articles.itemSnapshotList.items
-                    .slice(IntRange(start = 0, endInclusive = 9))
-                    .joinToString(separator = " \uD83d\uDFE5 ") {
-                        it.title
-                    }
-            } else {
-                ""
-            }
-        }
-    }
+//    val titles by remember {
+//        derivedStateOf {
+//            if (articles.itemCount > 10) {
+//                articles.itemSnapshotList.items
+//                    .slice(IntRange(start = 0, endInclusive = 9))
+//                    .joinToString(separator = " \uD83d\uDFE5 ") {
+//                        it.title
+//                    }
+//            } else {
+//                ""
+//            }
+//        }
+//    }
 
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(top = MediumPadding1)
             .statusBarsPadding()
+            .background(Color.White)
     ) {
 
         Row (

@@ -8,8 +8,10 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import com.example.newsnow.R
 import com.example.newsnow.ui.theme.WhiteGray
 
 @Composable
@@ -19,7 +21,7 @@ fun NewsButton(
 ){
 
     Button(onClick = onClick, colors = ButtonDefaults.buttonColors(
-        containerColor = MaterialTheme.colorScheme.primary,
+        containerColor = colorResource(id = R.color.ButtonColor),
         contentColor = Color.White),
         shape = RoundedCornerShape(size = 6.dp)
         ) {
