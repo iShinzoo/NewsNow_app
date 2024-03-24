@@ -29,32 +29,33 @@ import com.example.newsnow.ui.theme.NewsNowTheme
 
 @Composable
 fun NewsBottomNavigation(
-    items : List<BottomNavigationItem>,
-    selected : Int,
-    onItemClick : (Int) -> Unit
-){
+    items: List<BottomNavigationItem>,
+    selected: Int,
+    onItemClick: (Int) -> Unit
+) {
 
-    NavigationBar (
+    NavigationBar(
         modifier = Modifier
             .fillMaxWidth(),
         containerColor = MaterialTheme.colorScheme.background,
         tonalElevation = 10.dp
-    ){
-        items.forEachIndexed{ index , item ->
+    ) {
+        items.forEachIndexed { index, item ->
             NavigationBarItem(
                 selected = index == selected,
                 onClick = { onItemClick(index) },
                 icon = {
-                    Column (horizontalAlignment = Alignment.CenterHorizontally) {
-                        Icon(painter = painterResource(id = item.icon),
+                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                        Icon(
+                            painter = painterResource(id = item.icon),
                             contentDescription = null,
                             modifier = Modifier.size(IconSize)
                         )
-                        
+
                         Spacer(modifier = Modifier.height(ExtraSmallPadding2))
-                        
+
                         Text(text = item.text, style = MaterialTheme.typography.labelSmall)
-                        
+
                     }
                 },
                 colors = NavigationBarItemDefaults.colors(
@@ -73,15 +74,15 @@ fun NewsBottomNavigation(
 
 
 data class BottomNavigationItem(
-    @DrawableRes val icon : Int,
-    val text : String
+    @DrawableRes val icon: Int,
+    val text: String
 )
 
 
 @Preview
 @Preview(uiMode = UI_MODE_NIGHT_YES)
 @Composable
-fun NewsBottomNavigationPreview(){
+fun NewsBottomNavigationPreview() {
     NewsNowTheme {
         NewsBottomNavigation(
             items = listOf(

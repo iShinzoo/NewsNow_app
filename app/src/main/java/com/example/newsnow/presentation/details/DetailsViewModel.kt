@@ -21,18 +21,19 @@ class DetailsViewModel @Inject constructor(
         private set
 
 
-    fun onEvent(event: DetailsEvent){
-        when(event){
+    fun onEvent(event: DetailsEvent) {
+        when (event) {
             is DetailsEvent.UpsertDeleteArticle -> {
                 viewModelScope.launch {
                     var article = newsUseCases.selectArticle(event.article.url)
-                    if (article == null){
+                    if (article == null) {
                         upsertArticle(event.article)
                     } else {
                         deleteArticle(event.article)
                     }
                 }
             }
+
             is DetailsEvent.RemoveSideEffect -> {
                 sideEffect = null
             }

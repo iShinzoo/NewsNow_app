@@ -47,10 +47,13 @@ fun ArticleCardShimmerEffect(
     modifier: Modifier = Modifier
 ) {
 
-    Card(onClick = { /*TODO*/ },
-        modifier = Modifier.padding(16.dp)
+    Card(
+        onClick = { /*TODO*/ },
+        modifier = Modifier
+            .padding(16.dp)
             .fillMaxWidth()
-            .height(300.dp)) {
+            .height(300.dp)
+    ) {
 
 
         Row(

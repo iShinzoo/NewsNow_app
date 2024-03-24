@@ -4,11 +4,11 @@ import androidx.annotation.DrawableRes
 import com.example.newsnow.R
 
 
-data class Page (
-    val title : String,
-    val description : String,
-    @DrawableRes val image : Int
-    )
+data class Page(
+    val title: String,
+    val description: String,
+    @DrawableRes val image: Int
+)
 
 val page = listOf(
     Page(

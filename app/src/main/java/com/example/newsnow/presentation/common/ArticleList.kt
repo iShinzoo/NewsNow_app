@@ -20,42 +20,42 @@ import com.example.newsnow.ui.theme.NewsNowTheme
 @Composable
 fun ArticlesList(
     modifier: Modifier = Modifier,
-    articles : List<Article>,
-    onClick : (Article) -> Unit
-){
-    if (articles.isEmpty()){
+    articles: List<Article>,
+    onClick: (Article) -> Unit
+) {
+    if (articles.isEmpty()) {
         EmptyScreen()
     }
-        LazyColumn(
-            modifier = modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.spacedBy(MediumPadding1),
-            contentPadding = PaddingValues(all = 4.dp)
-        ){
-            items(count = articles.size){
-                val article = articles[it]
-                    ArticleCard(article = article , onClick = {onClick(article)} )
-                }
-            }
+    LazyColumn(
+        modifier = modifier.fillMaxSize(),
+        verticalArrangement = Arrangement.spacedBy(MediumPadding1),
+        contentPadding = PaddingValues(all = 4.dp)
+    ) {
+        items(count = articles.size) {
+            val article = articles[it]
+            ArticleCard(article = article, onClick = { onClick(article) })
         }
+    }
+}
 
 
 @Composable
 fun ArticlesList(
     modifier: Modifier = Modifier,
-    articles : LazyPagingItems<Article>,
-    onClick : (Article) -> Unit
-){
+    articles: LazyPagingItems<Article>,
+    onClick: (Article) -> Unit
+) {
 
     val handlePagingResult = handlePagingResults(articles = articles)
-    if (handlePagingResult){
+    if (handlePagingResult) {
         LazyColumn(
             modifier = modifier.fillMaxSize(),
             verticalArrangement = Arrangement.spacedBy(MediumPadding1)
 //            contentPadding = PaddingValues(all = 4.dp)
-        ){
-            items(count = articles.itemCount){
-                articles[it]?.let{
-                    ArticleCard(article = it , onClick = {onClick(it)} )
+        ) {
+            items(count = articles.itemCount) {
+                articles[it]?.let {
+                    ArticleCard(article = it, onClick = { onClick(it) })
                 }
             }
         }
@@ -65,20 +65,21 @@ fun ArticlesList(
 @Composable
 fun handlePagingResults(
     articles: LazyPagingItems<Article>
-) : Boolean {
+): Boolean {
 
     val loadState = articles.loadState
-    val error = when{
+    val error = when {
         loadState.refresh is LoadState.Error -> loadState.refresh as LoadState.Error
         loadState.prepend is LoadState.Error -> loadState.prepend as LoadState.Error
         loadState.append is LoadState.Error -> loadState.append as LoadState.Error
         else -> null
     }
-    return when{
+    return when {
         loadState.refresh is LoadState.Loading -> {
             shimmerEffect()
             false
         }
+
         error != null -> {
             EmptyScreen(
                 error = error
@@ -98,9 +99,9 @@ fun handlePagingResults(
 }
 
 @Composable
-private fun shimmerEffect(){
-    Column( verticalArrangement = Arrangement.spacedBy(MediumPadding1)) {
-        repeat(10){
+private fun shimmerEffect() {
+    Column(verticalArrangement = Arrangement.spacedBy(MediumPadding1)) {
+        repeat(10) {
             ArticleCardShimmerEffect(
                 modifier = Modifier.padding(horizontal = MediumPadding1)
             )

@@ -28,8 +28,8 @@ class MainViewModel @Inject constructor(
         private set
 
     init {
-        appEntryUseCases.readAppEntry().onEach {shouldStartFromScreen ->
-            if (shouldStartFromScreen){
+        appEntryUseCases.readAppEntry().onEach { shouldStartFromScreen ->
+            if (shouldStartFromScreen) {
                 startDestination = Route.NewsNavigation.route
             } else {
                 startDestination = Route.AppStartNavigation.route

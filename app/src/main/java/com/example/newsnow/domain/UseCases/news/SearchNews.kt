@@ -9,8 +9,8 @@ class SearchNews(
     private val newsRepository: NewsRepository
 ) {
 
-    operator fun invoke(searchQuery : String,sources : List<String>) : Flow<PagingData<Article>> {
-        return newsRepository.searchNews(searchQuery = searchQuery,sources = sources)
+    operator fun invoke(searchQuery: String, sources: List<String>): Flow<PagingData<Article>> {
+        return newsRepository.searchNews(searchQuery = searchQuery, sources = sources)
     }
 
 }

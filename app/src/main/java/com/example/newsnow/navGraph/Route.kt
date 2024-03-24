@@ -1,7 +1,7 @@
 package com.example.newsnow.navGraph
 
 sealed class Route(
-    val route : String
+    val route: String
 ) {
 
     object OnBoardingScreen : Route(route = "onBoardingScreen")

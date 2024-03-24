@@ -35,32 +35,36 @@ import kotlinx.coroutines.launch
 @Composable
 fun OnBoardingScreen(
     event: (OnBoardingEvent) -> Unit
-){
-    Column ( modifier = Modifier.fillMaxSize()
-        .background(Color.White)){
+) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White)
+    ) {
         val pagerState = rememberPagerState(initialPage = 0) {
             page.size
         }
 
         val buttonState = remember {
             derivedStateOf {
-                when(pagerState.currentPage){
-                    0 -> listOf("","Next")
-                    1 -> listOf("Back","Next")
-                    else -> listOf("Back","Get Started")
+                when (pagerState.currentPage) {
+                    0 -> listOf("", "Next")
+                    1 -> listOf("Back", "Next")
+                    else -> listOf("Back", "Get Started")
                 }
             }
         }
-        HorizontalPager(state = pagerState) {index ->
+        HorizontalPager(state = pagerState) { index ->
             OnBoardingPage(page = page[index])
         }
-        
+
         Spacer(modifier = Modifier.weight(1f))
-        
-        Row(modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = MediumPadding2)
-            .navigationBarsPadding(),
+
+        Row(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = MediumPadding2)
+                .navigationBarsPadding(),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -106,7 +110,7 @@ fun OnBoardingScreen(
 
 @Preview
 @Composable
-fun OnBoardingScreenPreview(){
+fun OnBoardingScreenPreview() {
     NewsNowTheme {
         OnBoardingScreen {
 

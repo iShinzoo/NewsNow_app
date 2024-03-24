@@ -9,14 +9,14 @@ import com.example.newsnow.domain.model.Source
 class NewsTypeConverter {
 
     @TypeConverter
-    fun sourceToString(source : Source): String{
+    fun sourceToString(source: Source): String {
         return "${source.id},${source.name}"
     }
 
     @TypeConverter
-    fun stringToSource(source : String) : Source{
-        return source.split(",").let {sourceArray ->
-            Source(sourceArray[0],sourceArray[1])
+    fun stringToSource(source: String): Source {
+        return source.split(",").let { sourceArray ->
+            Source(sourceArray[0], sourceArray[1])
         }
     }
 

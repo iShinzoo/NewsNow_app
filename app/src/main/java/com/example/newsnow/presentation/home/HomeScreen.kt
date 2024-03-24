@@ -63,11 +63,11 @@ fun HomeScreen(
             .background(Color.White)
     ) {
 
-        Row (
+        Row(
             modifier = Modifier
                 .fillMaxWidth()
                 .height(50.dp)
-        ){
+        ) {
 
 
             Image(

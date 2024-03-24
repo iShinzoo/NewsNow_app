@@ -20,11 +20,11 @@ import com.example.newsnow.presentation.dimension.START_END_PADDING
 @Composable
 fun SearchScreen(
     state: SearchState,
-    event : (SearchEvent) -> Unit,
-    navigateToDetails : (Article) -> Unit
-){
+    event: (SearchEvent) -> Unit,
+    navigateToDetails: (Article) -> Unit
+) {
 
-    Column (
+    Column(
         modifier = Modifier
             .padding(
                 top = MediumPadding1,
@@ -36,16 +36,16 @@ fun SearchScreen(
     ) {
 
         SearchBar(
-            text =state.searchQuery,
+            text = state.searchQuery,
             readOnly = false,
-            onValueChange = {event(SearchEvent.UpdateSearchQuery(it))},
-            onSearch = {event(SearchEvent.SearchNews)})
-        
+            onValueChange = { event(SearchEvent.UpdateSearchQuery(it)) },
+            onSearch = { event(SearchEvent.SearchNews) })
+
         Spacer(modifier = Modifier.height(MediumPadding1))
 
         state.articles?.let {
             val articles = it.collectAsLazyPagingItems()
-            ArticlesList(articles = articles, onClick = {navigateToDetails(it)})
+            ArticlesList(articles = articles, onClick = { navigateToDetails(it) })
 
         }
 

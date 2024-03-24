@@ -33,26 +33,29 @@ import com.example.newsnow.ui.theme.NewsNowTheme
 fun OnBoardingPage(
     modifier: Modifier = Modifier,
     page: Page
-){
+) {
 
     Column(modifier = Modifier.background(Color.White)) {
 
-        Image(modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight(0.6f)
-            ,painter = painterResource(id = page.image)
-            , contentDescription = null,
+        Image(
+            modifier = Modifier
+                .fillMaxWidth()
+                .fillMaxHeight(0.6f),
+            painter = painterResource(id = page.image),
+            contentDescription = null,
             contentScale = ContentScale.Fit,
-            )
+        )
         Spacer(modifier = Modifier.height(MediumPadding1))
-        Text(text = page.title,
+        Text(
+            text = page.title,
             modifier = Modifier
                 .padding(horizontal = MediumPadding2),
             style = MaterialTheme.typography.displaySmall.copy(fontWeight = FontWeight.Bold),
             color = Color.Black
-            )
+        )
         Spacer(modifier = Modifier.height(MediumPadding1))
-        Text(text = page.description,
+        Text(
+            text = page.description,
             modifier = Modifier
                 .padding(horizontal = MediumPadding2),
             style = MaterialTheme.typography.bodyMedium,
@@ -63,7 +66,7 @@ fun OnBoardingPage(
 
 @Preview(showBackground = true)
 @Composable
-fun onBoardingPagePreview(){
+fun onBoardingPagePreview() {
     NewsNowTheme {
         OnBoardingPage(
             page = page[0]

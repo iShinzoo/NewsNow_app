@@ -9,7 +9,7 @@ class SelectArticles(
     private val newsRepository: NewsRepository
 ) {
 
-    operator fun invoke() : Flow<List<Article>>{
+    operator fun invoke(): Flow<List<Article>> {
         return newsRepository.selectArticles()
     }
 

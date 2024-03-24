@@ -16,18 +16,22 @@ import com.example.newsnow.ui.theme.WhiteGray
 
 @Composable
 fun NewsButton(
-    text : String,
-    onClick:() -> Unit
-){
+    text: String,
+    onClick: () -> Unit
+) {
 
-    Button(onClick = onClick, colors = ButtonDefaults.buttonColors(
-        containerColor = colorResource(id = R.color.ButtonColor),
-        contentColor = Color.White),
+    Button(
+        onClick = onClick, colors = ButtonDefaults.buttonColors(
+            containerColor = colorResource(id = R.color.ButtonColor),
+            contentColor = Color.White
+        ),
         shape = RoundedCornerShape(size = 6.dp)
-        ) {
-        Text(text = text,
+    ) {
+        Text(
+            text = text,
             style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.SemiBold),
-            color = Color.White)
+            color = Color.White
+        )
     }
 }
 
@@ -35,9 +39,10 @@ fun NewsButton(
 fun NewsTextButton(
     text: String,
     onClick: () -> Unit
-){
+) {
     TextButton(onClick = onClick) {
-        Text(text = text,
+        Text(
+            text = text,
             style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.SemiBold),
             color = WhiteGray
         )

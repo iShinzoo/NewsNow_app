@@ -22,20 +22,25 @@ import com.example.newsnow.ui.theme.BlueGray
 
 @Composable
 fun PageIndicator(
-    modifier : Modifier = Modifier,
-    pageSize : Int,
-    selectedPage : Int,
-    selectedColor : Color = colorResource(id = R.color.ButtonColor),
+    modifier: Modifier = Modifier,
+    pageSize: Int,
+    selectedPage: Int,
+    selectedColor: Color = colorResource(id = R.color.ButtonColor),
     unselectedColor: Color = BlueGray,
     indicatorSpacing: Dp = 8.dp
-){
-    Row (modifier = Modifier.background(Color.White),
-        horizontalArrangement = Arrangement.spacedBy(indicatorSpacing)){
-        repeat(pageSize){
-            page->
+) {
+    Row(
+        modifier = Modifier.background(Color.White),
+        horizontalArrangement = Arrangement.spacedBy(indicatorSpacing)
+    ) {
+        repeat(pageSize) { page ->
 
-            Box ( modifier = Modifier.size(IndicatorSize).clip(CircleShape)
-                .background(color = if (page == selectedPage) selectedColor else unselectedColor) ){
+            Box(
+                modifier = Modifier
+                    .size(IndicatorSize)
+                    .clip(CircleShape)
+                    .background(color = if (page == selectedPage) selectedColor else unselectedColor)
+            ) {
 
             }
         }

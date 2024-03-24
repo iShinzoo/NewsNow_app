@@ -15,13 +15,14 @@ class SearchViewModel @Inject constructor(
 ) : ViewModel() {
 
     private val _state = mutableStateOf(SearchState())
-    val state : State<SearchState> = _state
+    val state: State<SearchState> = _state
 
-    fun onEvent(event: SearchEvent){
-        when(event){
+    fun onEvent(event: SearchEvent) {
+        when (event) {
             is SearchEvent.UpdateSearchQuery -> {
                 _state.value = state.value.copy(searchQuery = event.searchQuery)
             }
+
             is SearchEvent.SearchNews -> {
                 searchNews()
             }
@@ -31,7 +32,7 @@ class SearchViewModel @Inject constructor(
     private fun searchNews() {
         val articles = newsUseCases.searchNews(
             searchQuery = state.value.searchQuery,
-            sources = listOf("BBC-News","ABC-News")
+            sources = listOf("BBC-News", "ABC-News")
         ).cachedIn(viewModelScope)
         _state.value = state.value.copy(articles = articles)
     }

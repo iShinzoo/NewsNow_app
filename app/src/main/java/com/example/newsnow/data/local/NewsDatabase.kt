@@ -10,6 +10,6 @@ import com.example.newsnow.domain.model.Article
 @TypeConverters(NewsTypeConverter::class)
 abstract class NewsDatabase : RoomDatabase() {
 
-    abstract val newsDao : NewsDAO
+    abstract val newsDao: NewsDAO
 
 }

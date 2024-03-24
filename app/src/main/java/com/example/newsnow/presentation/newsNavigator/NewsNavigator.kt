@@ -35,11 +35,10 @@ import com.example.newsnow.presentation.newsNavigator.component.BottomNavigation
 import com.example.newsnow.presentation.newsNavigator.component.NewsBottomNavigation
 
 
-
 @Composable
-fun NewsNavigator(){
+fun NewsNavigator() {
 
-    val bottomNavigationItem =  remember {
+    val bottomNavigationItem = remember {
         listOf(
             BottomNavigationItem(icon = R.drawable.ic_home, text = "HOME"),
             BottomNavigationItem(icon = R.drawable.ic_search, text = "SEARCH"),
@@ -53,8 +52,8 @@ fun NewsNavigator(){
         mutableStateOf(0)
     }
 
-    selectedItem = remember (key1 = backStackState){
-        when(backStackState?.destination?.route){
+    selectedItem = remember(key1 = backStackState) {
+        when (backStackState?.destination?.route) {
             Route.HomeScreen.route -> 0
             Route.SearchScreen.route -> 1
             Route.BookMarkScreen.route -> 2
@@ -69,7 +68,7 @@ fun NewsNavigator(){
                 backStackState?.destination?.route == Route.BookMarkScreen.route
     }
 
-    Scaffold (
+    Scaffold(
         modifier = Modifier.fillMaxSize(),
         bottomBar = {
             if (isBottomBarVisible) {
@@ -104,10 +103,10 @@ fun NewsNavigator(){
             navController = navController,
             startDestination = Route.HomeScreen.route,
             modifier = Modifier.padding(bottom = bottomPadding)
-            ){
+        ) {
 
-            composable(route = Route.HomeScreen.route){
-                val viewModel : HomeViewModel = hiltViewModel()
+            composable(route = Route.HomeScreen.route) {
+                val viewModel: HomeViewModel = hiltViewModel()
                 val articles = viewModel.news.collectAsLazyPagingItems()
                 HomeScreen(
                     articles = articles,
@@ -120,15 +119,15 @@ fun NewsNavigator(){
                             article = article
                         )
                     }
-                    )
+                )
             }
 
-            composable(route = Route.SearchScreen.route){
-                val viewModel : SearchViewModel = hiltViewModel()
+            composable(route = Route.SearchScreen.route) {
+                val viewModel: SearchViewModel = hiltViewModel()
                 val state = viewModel.state.value
                 SearchScreen(
                     state = state,
-                    event =viewModel::onEvent,
+                    event = viewModel::onEvent,
                     navigateToDetails = { article ->
                         navigateToDetails(
                             navController = navController,
@@ -139,24 +138,25 @@ fun NewsNavigator(){
                 )
             }
 
-            composable(route = Route.DetailsScreen.route){
-                val viewModel : DetailsViewModel = hiltViewModel()
-                if (viewModel.sideEffect != null){
-                    Toast.makeText(LocalContext.current, viewModel.sideEffect, Toast.LENGTH_SHORT).show()
+            composable(route = Route.DetailsScreen.route) {
+                val viewModel: DetailsViewModel = hiltViewModel()
+                if (viewModel.sideEffect != null) {
+                    Toast.makeText(LocalContext.current, viewModel.sideEffect, Toast.LENGTH_SHORT)
+                        .show()
                     viewModel.onEvent(DetailsEvent.RemoveSideEffect)
                 }
                 navController.previousBackStackEntry?.savedStateHandle?.get<Article?>("article")
                     ?.let { article ->
-                    DetailsScreen(
-                        article = article,
-                        event = viewModel::onEvent,
-                        navigateUp = { navController.navigateUp() }
-                    )
-                }
+                        DetailsScreen(
+                            article = article,
+                            event = viewModel::onEvent,
+                            navigateUp = { navController.navigateUp() }
+                        )
+                    }
             }
 
-            composable(route = Route.BookMarkScreen.route){
-                val viewModel : BookMarkViewModel = hiltViewModel()
+            composable(route = Route.BookMarkScreen.route) {
+                val viewModel: BookMarkViewModel = hiltViewModel()
                 val state = viewModel.state.value
                 BookMarkScreen(
                     state = state,
@@ -164,11 +164,10 @@ fun NewsNavigator(){
                         navigateToDetails(
                             navController = navController,
                             article = article
-                            )
+                        )
                     }
                 )
             }
-
 
 
         }
@@ -176,10 +175,10 @@ fun NewsNavigator(){
     }
 }
 
-private fun navigateToTab(navController: NavController, route : String){
-    navController.navigate(route){
+private fun navigateToTab(navController: NavController, route: String) {
+    navController.navigate(route) {
         navController.graph.startDestinationRoute?.let { homeScreen ->
-            popUpTo(homeScreen){
+            popUpTo(homeScreen) {
                 saveState = true
             }
             restoreState = true
@@ -188,8 +187,8 @@ private fun navigateToTab(navController: NavController, route : String){
     }
 }
 
-private fun navigateToDetails(navController: NavController, article: Article){
-    navController.currentBackStackEntry?.savedStateHandle?.set("article",article)
+private fun navigateToDetails(navController: NavController, article: Article) {
+    navController.currentBackStackEntry?.savedStateHandle?.set("article", article)
     navController.navigate(
         route = Route.DetailsScreen.route
     )

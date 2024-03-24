@@ -10,20 +10,20 @@ interface NewsApi {
     @GET("everything")
     suspend fun getNews(
 
-        @Query("page") page : Int ,
-        @Query("sources") sources : String ,
-        @Query("apiKey") apiKey : String = API_KEY
+        @Query("page") page: Int,
+        @Query("sources") sources: String,
+        @Query("apiKey") apiKey: String = API_KEY
 
-    ) : NewsResponse
+    ): NewsResponse
 
     @GET("everything")
     suspend fun SearchNews(
 
-        @Query("q") searchQuery : String,
-        @Query("page") page : Int ,
-        @Query("sources") sources : String ,
-        @Query("apiKey") apiKey : String = API_KEY
+        @Query("q") searchQuery: String,
+        @Query("page") page: Int,
+        @Query("sources") sources: String,
+        @Query("apiKey") apiKey: String = API_KEY
 
-    ) : NewsResponse
+    ): NewsResponse
 
 }

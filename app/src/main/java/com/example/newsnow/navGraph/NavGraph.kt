@@ -13,21 +13,21 @@ import com.example.newsnow.presentation.onboarding.OnBoardingViewModel
 
 @Composable
 fun NavGraph(
-    startDestination : String
-){
+    startDestination: String
+) {
 
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = startDestination){
+    NavHost(navController = navController, startDestination = startDestination) {
 
         navigation(
             route = Route.AppStartNavigation.route,
             startDestination = Route.OnBoardingScreen.route
-        ){
+        ) {
             composable(
                 route = Route.OnBoardingScreen.route
-                ){
-                val viewModel : OnBoardingViewModel = hiltViewModel()
+            ) {
+                val viewModel: OnBoardingViewModel = hiltViewModel()
 
                 OnBoardingScreen(
                     event = viewModel::onEvent
@@ -38,10 +38,10 @@ fun NavGraph(
         navigation(
             route = Route.NewsNavigation.route,
             startDestination = Route.NewsNavigatorScreen.route
-        ){
+        ) {
             composable(
                 route = Route.NewsNavigatorScreen.route
-            ){
+            ) {
                 NewsNavigator()
             }
         }

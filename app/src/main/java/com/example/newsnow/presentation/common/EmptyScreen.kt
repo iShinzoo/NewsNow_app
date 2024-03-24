@@ -39,7 +39,7 @@ import java.net.SocketTimeoutException
 
 
 @Composable
-fun EmptyScreen(error : LoadState.Error? = null) {
+fun EmptyScreen(error: LoadState.Error? = null) {
 
     var message by remember {
         mutableStateOf(parseErrorMessage(error = error))
@@ -72,12 +72,13 @@ fun EmptyScreen(error : LoadState.Error? = null) {
     )
 
 }
+
 @Composable
 fun EmptyContent(
-    alphaAnim : Float,
-    message : String,
+    alphaAnim: Float,
+    message: String,
     iconId: Int
-){
+) {
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -106,15 +107,17 @@ fun EmptyContent(
     }
 }
 
-fun parseErrorMessage(error : LoadState.Error?): String{
+fun parseErrorMessage(error: LoadState.Error?): String {
 
-    return when(error?.error){
+    return when (error?.error) {
         is SocketTimeoutException -> {
             "Server Unavailable"
         }
+
         is ConnectException -> {
             "Internet unavailable"
         }
+
         else -> {
             "Unknown Error"
         }
@@ -123,6 +126,6 @@ fun parseErrorMessage(error : LoadState.Error?): String{
 
 @Preview(showBackground = true)
 @Composable
-fun EmptyScreenPreview(){
-    EmptyContent(alphaAnim = 0.3f , message = "Internet Unavailable",R.drawable.bookmarkkk)
+fun EmptyScreenPreview() {
+    EmptyContent(alphaAnim = 0.3f, message = "Internet Unavailable", R.drawable.bookmarkkk)
 }
