@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.width
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.derivedStateOf
@@ -34,7 +35,7 @@ import com.example.newsnow.presentation.dimension.MediumPadding1
 
 @Composable
 fun HomeScreen(
-    modifier: Modifier = Modifier.background(Color.White),
+    modifier: Modifier = Modifier.background(MaterialTheme.colorScheme.surfaceBright),
     articles: LazyPagingItems<Article>,
 //    navigateToSearch: () -> Unit,
     navigateToDetails: (Article) -> Unit
@@ -60,7 +61,7 @@ fun HomeScreen(
             .fillMaxSize()
             .padding(top = MediumPadding1)
             .statusBarsPadding()
-            .background(Color.White)
+            .background(MaterialTheme.colorScheme.surfaceBright)
     ) {
 
         Row(
@@ -92,7 +93,7 @@ fun HomeScreen(
 //            color = Color.Black
 //        )
 
-        Spacer(modifier = Modifier.height(MediumPadding1))
+        Spacer(modifier = Modifier.height(12.dp))
 
 
         ArticlesList(
