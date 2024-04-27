@@ -18,6 +18,8 @@ NewsNow is a News Fetching app utilizing modern Android technologies, including 
 ## 🛠 Skills
 ## Screenshots
 
+<img src="https://github.com/iShinzoo/NewsNow_app/blob/master/assets/Screenshot%202024-04-04%20103520.png" alt="project-screenshot" width="50" height="80/"><img src="https://github.com/iShinzoo/NewsNow_app/blob/master/assets/Screenshot%202024-04-04%20103628.png" alt="project-screenshot" width="50" height="80/"><img src="https://github.com/iShinzoo/NewsNow_app/blob/master/assets/Screenshot%202024-04-04%20103609.png" alt="project-screenshot" width="50" height="80/"><img src="https://github.com/iShinzoo/NewsNow_app/blob/master/assets/Screenshot%202024-04-04%20103700.png" alt="project-screenshot" width="50" height="80/"><img src="https://github.com/iShinzoo/NewsNow_app/blob/master/assets/Screenshot%202024-04-04%20103712.png" alt="project-screenshot" width="50" height="80/"><img src="https://github.com/iShinzoo/NewsNow_app/blob/master/assets/Screenshot%202024-04-04%20103737.png" alt="project-screenshot" width="50" height="80/">
+
 ![Splash Screen](https://github.com/iShinzoo/NewsNow_app/blob/master/assets/Screenshot%202024-04-04%20103520.png)![OnBoarding Screen](https://github.com/iShinzoo/NewsNow_app/blob/master/assets/Screenshot%202024-04-04%20103628.png)
 
 ![OnBoarding Screen](https://github.com/iShinzoo/NewsNow_app/blob/master/assets/Screenshot%202024-04-04%20103609.png)![Home Screen](https://github.com/iShinzoo/NewsNow_app/blob/master/assets/Screenshot%202024-04-04%20103700.png)
