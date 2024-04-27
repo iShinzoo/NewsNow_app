@@ -18,17 +18,13 @@ NewsNow is a News Fetching app utilizing modern Android technologies, including 
 ## 🛠 Skills
 ## Screenshots
 
-![Splash Screen](https://github.com/iShinzoo/NewsNow_app/blob/master/assets/Screenshot%202024-04-04%20103520.png)
+![Splash Screen](https://github.com/iShinzoo/NewsNow_app/blob/master/assets/Screenshot%202024-04-04%20103520.png)![OnBoarding Screen](https://github.com/iShinzoo/NewsNow_app/blob/master/assets/Screenshot%202024-04-04%20103628.png)
 
-![OnBoarding Screen](https://github.com/iShinzoo/NewsNow_app/blob/master/assets/Screenshot%202024-04-04%20103628.png)
+![OnBoarding Screen](https://github.com/iShinzoo/NewsNow_app/blob/master/assets/Screenshot%202024-04-04%20103609.png)![Home Screen](https://github.com/iShinzoo/NewsNow_app/blob/master/assets/Screenshot%202024-04-04%20103700.png)
 
-![OnBoarding Screen](https://github.com/iShinzoo/NewsNow_app/blob/master/assets/Screenshot%202024-04-04%20103609.png)
+![Bookmark Screen](https://github.com/iShinzoo/NewsNow_app/blob/master/assets/Screenshot%202024-04-04%20103712.png)![Details Screen](https://github.com/iShinzoo/NewsNow_app/blob/master/assets/Screenshot%202024-04-04%20103737.png)
 
-![Home Screen](https://github.com/iShinzoo/NewsNow_app/blob/master/assets/Screenshot%202024-04-04%20103700.png)
 
-![Bookmark Screen](https://github.com/iShinzoo/NewsNow_app/blob/master/assets/Screenshot%202024-04-04%20103712.png)
-
-![Details Screen](https://github.com/iShinzoo/NewsNow_app/blob/master/assets/Screenshot%202024-04-04%20103737.png)
 ## Project Structure
 
 
