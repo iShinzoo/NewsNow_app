@@ -24,7 +24,7 @@ NewsNow is a News Fetching app utilizing modern Android technologies, including 
 
 Install my-project with
 
-[Click to Download App ](https://github.com/iShinzoo/NewsNow_app/blob/master/app/release/NewsNow.aab)
+[Click to Download App ](https://drive.google.com/drive/folders/1R3856egDE5RM0lSKzMhIS5YtHMUzLHUM)
 
 or 
 
